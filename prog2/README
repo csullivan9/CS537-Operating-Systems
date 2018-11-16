@@ -1,0 +1,23 @@
+Group members (CS login):
+Deryk Clary (deryk)
+Chris Sullivan (csullivan)
+
+For this project (program 2), we created six C files that work together to read strings from stdin, change the spaces to "*", put it in all caps, then print it back out to the console.
+
+main.c: This file handles the creation of the three queues and four threads. Then once the input is complete, it prints the queue stats to the console, signaling completion. It is a pretty standard file and was made in accordance with the programming assignment guidlines.
+
+queue.c: This file is the bread and butter of what makes the queues work. It also created the most problems. Basically we had to declare a Queue struct that included pointers to all of the strings in the queue and all of the stats that need to be printed out at the completion of the program. The synchronization is handled by three semaphores (mutex, full, empty). Each does the job their name suggests. The file also includes the basic functions needed to implement a queue (create, enqueue, dequeue) along with a function to print the queue stats.
+
+reader.c: This file handles reading all of the strings from stdin. It creates a buffer and fills it with the line one character at a time, places a newline character at the end to sigify line termination, then queues the string for munch1. If a line is larger than the buffer size, it prints the error and flushes the remainder of the line. The while and for loops are constantly monitoring for an EOF character that signifies that the program should terminate. When an EOF character is found, it breaks the for loop, queues the current line, puts NULL into the queue for munch1, then exits the thread.
+
+munch1.c: This file takes all the strings queued from reader, replaces all the spaces with *, then queues the changed string for munch2. This whole time it is looking for NULL to be dequeued, signifying EOF. When that is found, it queues NULL for munch2 and exits the thread.
+
+munch2.c: This file takes all the strings queued from munch1, iterates through the string using a pointer to change each lower case character to upper case, then queues the changed string for writer. This whole time it is looking for NULL to be dequeued, signifying EOF. When that is found, it queues NULL for writer and exits the thread.
+
+writer.c: This file simply takes all the strings queued from munch2, writes them to stdout, and frees the memory from that string. This whole time it is looking for NULL to be dequeued, signifying EOF. When that is found, it exits the thread.
+
+Design notes: 
+-We chose to pass a structure containing an array with pointers to each queue to the munches and writer. This way, we could easily handle dequeuing from one queue and then enqueuing to another, without having to worry about having multiple arguments for each function.
+-The only time we malloc memory is in reader. This is so that we can just pass pointers between the different queues to all of the blocks of memory. This memory is freed in writer after the string is printed to the console.
+
+Known bugs: NONE
