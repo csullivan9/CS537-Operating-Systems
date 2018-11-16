@@ -1,0 +1,19 @@
+Group members (CS login):
+Deryk Clary (deryk)
+Chris Sullivan (csullivan)
+
+For this project, we created three .c files that work together to accomplish the task:
+
+options.c: This is the main file that handles processing the input initially and finds what functions need to be called. There are two functions in this file: main and check_flags. Main's purpose is to check for valid args and pass them to the appropriate functions. Check_flags utilizes the parser in parser.c to create the output string that is eventually printed onto the console.
+
+parser.c: This is a supporting file whose purpose is to open the appropriate directory, find the information that corresponds to the flag passed to it, and return it to the check_flags function in options.c. It also retains the ability to shut the program down if the file in /proc fails to open.
+
+processes.c: This is also a supporting file that is called when there is no "-p" flag given to the program by the user. When this is called, it finds all of the user processes and calls check_flags on each one individually so that all of the needed information eventually gets printed to the console. This file also retains the ability to stop the program if a file fails to open.
+
+Design notes:
+-We chose not to use getopt() because we didn't find out about it until it was too late to implement. Had we discovered it earlier, it would have made taking in the flags a bit easier. But we got the program working without it so it turned out alright.
+-Since PID 0 is just the scheduler and is not normally in the /proc directory, we chose to omit it from being valid input into our program.
+
+Known bugs:
+None
+
