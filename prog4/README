@@ -1,0 +1,19 @@
+Group members (CS login):
+Deryk Clary (deryk)
+Chris Sullivan (csullivan)
+
+For this program (prog 4), we created two files that run the program.
+
+537malloc.c: This file contains the malloc, free, realloc, and memcheck functions.
+	To store each of the malloc'd blocks, we implemented a block struct, which stores the pointer to the block, the size, and a boolean that holds whether the block has been freed. This block struct is then put into the node that is stored in the red-black tree.
+	malloc537: 		Allocates a block of specified size, creates a block struct, and places it in the tree.
+	free537:		Finds the specified block in the tree, frees the block if it has not been freed already, then marks the block as free in the tree.
+	realloc537:		Finds the specified block in the tree, frees it, marks it as free, and allocates a new block, which will be placed in the tree.
+	memcheck537:	Checks if a piece of memory is allocated in the tree.
+
+rb_tree.c: This file was borrowed from a github repository and implemented into our program with some small changes and deletions.
+	The functions in this file create a red-black tree out of block structs made with 537malloc.c. It classifies each block according to the location of the pointer on the heap. Nodes are inserted and removed according to the specifications of a red-black tree.
+	Source: https://github.com/mirek/rb_tree
+
+Known bugs:
+	Valgrind reports memory leaks that appear to be coming from not freeing the tree and nodes at the end of main().
