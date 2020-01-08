@@ -1,0 +1,19 @@
+Group members (CS login):
+Deryk Clary (deryk)
+Chris Sullivan (csullivan)
+
+For this program (prog 3), we created 4 files, which do there part to create a working make function
+
+main.c: This file contains our main function, that just calls parse.
+
+parse.c: This file handles the parsing of the make file. It finds the targetName, dependencies, and the command lines, allocates memory on the heap for them, then passes pointers to that memory to graph, which puts all that information into a target struct. Before this function exits, it also checks for dependencies that never became targets, and creates targets with their filenames with their dependencies and args just simply being set to NULL.
+	There are a variety of helper functions in here such as createList, createCopy, printError, and checkMalloc which just help keep the main body of this file uncluttered.
+
+graph.c: This file contains the target struct. It also has functions that populate a graph of the targets and their dependencies, check for cycles in the graph, and create new targets using the data from parser.
+
+traverse.c: This file contains a function called execute, which traverses the graph made in graph.c. It handles executing all the commands from the makefile, forking processes, and all the things that are needed to create an executable file.
+
+Known bugs:
+	An unknown error comes up when calling execvp: "-Wall: error trying to exec 'cc1': execvp: No such file or directory"
+		We have no idea how to fix it, but at this point it's too late.
+	We also didn't get the chance to test the cycle checking and only building only a specified file.

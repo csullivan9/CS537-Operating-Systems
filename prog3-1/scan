@@ -1,0 +1,3 @@
+scan-build: Using '/afs/cs.wisc.edu/s/clang-6.0.1/@sys/bin/clang-8' for static analysis
+scan-build: Removing directory '/tmp/scan-build-2018-11-13-151043-11960-1' because it contains no reports.
+scan-build: No bugs found.
