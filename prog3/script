@@ -1,0 +1,3 @@
+#!/bin/bash
+make
+cp ./537make ./Program3-TestFiles/simple/

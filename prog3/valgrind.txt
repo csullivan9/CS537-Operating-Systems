@@ -1,0 +1,676 @@
+[csullivan@royal-11] (13)$  valgrind --leak-check=yes --track-origins=yes --read-var-info=yes 537make
+==4445== Memcheck, a memory error detector
+==4445== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4445== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==4445== Command: 537make
+==4445== 
+==4445== Conditional jump or move depends on uninitialised value(s)
+==4445==    at 0x4C32D08: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x4E994D2: vfprintf (vfprintf.c:1643)
+==4445==    by 0x4EBD6D0: vsprintf (iovsprintf.c:42)
+==4445==    by 0x4EA1093: sprintf (sprintf.c:32)
+==4445==    by 0x109EA3: substitute (parser.c:414)
+==4445==    by 0x109D48: replaceFlags (parser.c:385)
+==4445==    by 0x10911E: parse (parser.c:114)
+==4445==    by 0x108D24: main (main.c:18)
+==4445==  Uninitialised value was created by a heap allocation
+==4445==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x109B48: replaceFlags (parser.c:341)
+==4445==    by 0x10911E: parse (parser.c:114)
+==4445==    by 0x108D24: main (main.c:18)
+==4445== 
+==4445== Invalid write of size 1
+==4445==    at 0x4C32E0D: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x109765: parse (parser.c:209)
+==4445==    by 0x108D24: main (main.c:18)
+==4445==  Address 0x526c2d9 is 0 bytes after a block of size 9 alloc'd
+==4445==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x10972A: parse (parser.c:208)
+==4445==    by 0x108D24: main (main.c:18)
+==4445== 
+==4445== Invalid write of size 1
+==4445==    at 0x4C32E00: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x109765: parse (parser.c:209)
+==4445==    by 0x108D24: main (main.c:18)
+==4445==  Address 0x526c6b9 is 0 bytes after a block of size 9 alloc'd
+==4445==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x10972A: parse (parser.c:208)
+==4445==    by 0x108D24: main (main.c:18)
+==4445== 
+==4445== Invalid read of size 1
+==4445==    at 0x4C32970: index (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x109776: parse (parser.c:211)
+==4445==    by 0x108D24: main (main.c:18)
+==4445==  Address 0x526c6b9 is 0 bytes after a block of size 9 alloc'd
+==4445==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x10972A: parse (parser.c:208)
+==4445==    by 0x108D24: main (main.c:18)
+==4445== 
+==4445== Invalid write of size 1
+==4445==    at 0x109786: parse (parser.c:212)
+==4445==    by 0x108D24: main (main.c:18)
+==4445==  Address 0x526c6bf is 6 bytes after a block of size 9 alloc'd
+==4445==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x10972A: parse (parser.c:208)
+==4445==    by 0x108D24: main (main.c:18)
+==4445== 
+==4445== Invalid read of size 1
+==4445==    at 0x4C33DC7: strcmp (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x1096ED: parse (parser.c:202)
+==4445==    by 0x108D24: main (main.c:18)
+==4445==  Address 0x526e1d9 is 0 bytes after a block of size 9 alloc'd
+==4445==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x10972A: parse (parser.c:208)
+==4445==    by 0x108D24: main (main.c:18)
+==4445== 
+==4445== Invalid read of size 1
+==4445==    at 0x4C33DC4: strcmp (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x10A6C2: find (graph.c:67)
+==4445==    by 0x10A5BC: populate (graph.c:39)
+==4445==    by 0x109858: parse (parser.c:224)
+==4445==    by 0x108D24: main (main.c:18)
+==4445==  Address 0x526c6b9 is 0 bytes after a block of size 9 alloc'd
+==4445==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x10972A: parse (parser.c:208)
+==4445==    by 0x108D24: main (main.c:18)
+==4445== 
+==4445== Invalid read of size 1
+==4445==    at 0x4C32970: index (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x10A050: execute (traverse.c:61)
+==4445==    by 0x109FD8: execute (traverse.c:49)
+==4445==    by 0x109867: parse (parser.c:232)
+==4445==    by 0x108D24: main (main.c:18)
+==4445==  Address 0x526c6b9 is 0 bytes after a block of size 9 alloc'd
+==4445==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x10972A: parse (parser.c:208)
+==4445==    by 0x108D24: main (main.c:18)
+==4445== 
+==4445== Syscall param stat(file_name) points to unaddressable byte(s)
+==4445==    at 0x4F4B775: _xstat (xstat.c:35)
+==4445==    by 0x10A084: execute (traverse.c:66)
+==4445==    by 0x109FD8: execute (traverse.c:49)
+==4445==    by 0x109867: parse (parser.c:232)
+==4445==    by 0x108D24: main (main.c:18)
+==4445==  Address 0x526c6b9 is 0 bytes after a block of size 9 alloc'd
+==4445==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x10972A: parse (parser.c:208)
+==4445==    by 0x108D24: main (main.c:18)
+==4445== 
+==4445== Invalid read of size 1
+==4445==    at 0x4C329CB: strcat (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x10A46C: getPath (traverse.c:140)
+==4445==    by 0x10A4C7: compMod (traverse.c:158)
+==4445==    by 0x10A0CE: execute (traverse.c:70)
+==4445==    by 0x109FD8: execute (traverse.c:49)
+==4445==    by 0x109867: parse (parser.c:232)
+==4445==    by 0x108D24: main (main.c:18)
+==4445==  Address 0x526c6b9 is 0 bytes after a block of size 9 alloc'd
+==4445==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4445==    by 0x10972A: parse (parser.c:208)
+==4445==    by 0x108D24: main (main.c:18)
+==4445== 
+==4446== Invalid read of size 8
+==4446==    at 0x10A233: execute (traverse.c:90)
+==4446==    by 0x109FD8: execute (traverse.c:49)
+==4446==    by 0x109867: parse (parser.c:232)
+==4446==    by 0x108D24: main (main.c:18)
+==4446==  Address 0x523a5b0 is 0 bytes inside a block of size 8,192 free'd
+==4446==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4446==    by 0x1094F0: parse (parser.c:171)
+==4446==    by 0x108D24: main (main.c:18)
+==4446==  Block was alloc'd at
+==4446==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4446==    by 0x109503: parse (parser.c:172)
+==4446==    by 0x108D24: main (main.c:18)
+==4446== 
+==4446== Invalid write of size 1
+==4446==    at 0x4C32E0D: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4446==    by 0x10A35D: execute (traverse.c:111)
+==4446==    by 0x109FD8: execute (traverse.c:49)
+==4446==    by 0x109867: parse (parser.c:232)
+==4446==    by 0x108D24: main (main.c:18)
+==4446==  Address 0x5270069 is 0 bytes after a block of size 9 alloc'd
+==4446==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4446==    by 0x10A2F5: execute (traverse.c:108)
+==4446==    by 0x109FD8: execute (traverse.c:49)
+==4446==    by 0x109867: parse (parser.c:232)
+==4446==    by 0x108D24: main (main.c:18)
+==4446== 
+==4446== Invalid write of size 1
+==4446==    at 0x4C32E00: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4446==    by 0x10A35D: execute (traverse.c:111)
+==4446==    by 0x109FD8: execute (traverse.c:49)
+==4446==    by 0x109867: parse (parser.c:232)
+==4446==    by 0x108D24: main (main.c:18)
+==4446==  Address 0x5270109 is 0 bytes after a block of size 9 alloc'd
+==4446==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4446==    by 0x10A2F5: execute (traverse.c:108)
+==4446==    by 0x109FD8: execute (traverse.c:49)
+==4446==    by 0x109867: parse (parser.c:232)
+==4446==    by 0x108D24: main (main.c:18)
+==4446== 
+==4446== Syscall param execve(argv[i]) points to unaddressable byte(s)
+==4446==    at 0x4F20E37: execve (syscall-template.S:78)
+==4446==    by 0x4F21732: execvpe (execvpe.c:138)
+==4446==    by 0x10A39C: execute (traverse.c:115)
+==4446==    by 0x109FD8: execute (traverse.c:49)
+==4446==    by 0x109867: parse (parser.c:232)
+==4446==    by 0x108D24: main (main.c:18)
+==4446==  Address 0x5270069 is 0 bytes after a block of size 9 alloc'd
+==4446==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4446==    by 0x10A2F5: execute (traverse.c:108)
+==4446==    by 0x109FD8: execute (traverse.c:49)
+==4446==    by 0x109867: parse (parser.c:232)
+==4446==    by 0x108D24: main (main.c:18)
+==4446== 
+--4446-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4446-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4446-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4446-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4446-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4446-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4446-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4446-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+==4446== Syscall param execve(argv) points to uninitialised byte(s)
+==4446==    at 0x4F20E37: execve (syscall-template.S:78)
+==4446==    by 0x4F21732: execvpe (execvpe.c:138)
+==4446==    by 0x10A39C: execute (traverse.c:115)
+==4446==    by 0x109FD8: execute (traverse.c:49)
+==4446==    by 0x109867: parse (parser.c:232)
+==4446==    by 0x108D24: main (main.c:18)
+==4446==  Address 0x1ffeffe098 is on thread 1's stack
+==4446==  in frame #2, created by execute (traverse.c:37)
+==4446==  Uninitialised value was created by a stack allocation
+==4446==    at 0x10A1A8: execute (traverse.c:86)
+==4446== 
+: No such file or directory.c
+==4447== Invalid read of size 8
+==4447==    at 0x10A233: execute (traverse.c:90)
+==4447==    by 0x109FD8: execute (traverse.c:49)
+==4447==    by 0x109867: parse (parser.c:232)
+==4447==    by 0x108D24: main (main.c:18)
+==4447==  Address 0x5240630 is 0 bytes inside a block of size 8,192 free'd
+==4447==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4447==    by 0x1094F0: parse (parser.c:171)
+==4447==    by 0x108D24: main (main.c:18)
+==4447==  Block was alloc'd at
+==4447==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4447==    by 0x109503: parse (parser.c:172)
+==4447==    by 0x108D24: main (main.c:18)
+==4447== 
+==4447== Invalid write of size 1
+==4447==    at 0x4C32E0D: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4447==    by 0x10A35D: execute (traverse.c:111)
+==4447==    by 0x109FD8: execute (traverse.c:49)
+==4447==    by 0x109867: parse (parser.c:232)
+==4447==    by 0x108D24: main (main.c:18)
+==4447==  Address 0x5271649 is 0 bytes after a block of size 9 alloc'd
+==4447==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4447==    by 0x10A2F5: execute (traverse.c:108)
+==4447==    by 0x109FD8: execute (traverse.c:49)
+==4447==    by 0x109867: parse (parser.c:232)
+==4447==    by 0x108D24: main (main.c:18)
+==4447== 
+==4447== Invalid write of size 1
+==4447==    at 0x4C32E00: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4447==    by 0x10A35D: execute (traverse.c:111)
+==4447==    by 0x109FD8: execute (traverse.c:49)
+==4447==    by 0x109867: parse (parser.c:232)
+==4447==    by 0x108D24: main (main.c:18)
+==4447==  Address 0x52716e9 is 0 bytes after a block of size 9 alloc'd
+==4447==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4447==    by 0x10A2F5: execute (traverse.c:108)
+==4447==    by 0x109FD8: execute (traverse.c:49)
+==4447==    by 0x109867: parse (parser.c:232)
+==4447==    by 0x108D24: main (main.c:18)
+==4447== 
+==4447== Syscall param execve(argv[i]) points to unaddressable byte(s)
+==4447==    at 0x4F20E37: execve (syscall-template.S:78)
+==4447==    by 0x4F21732: execvpe (execvpe.c:138)
+==4447==    by 0x10A39C: execute (traverse.c:115)
+==4447==    by 0x109FD8: execute (traverse.c:49)
+==4447==    by 0x109867: parse (parser.c:232)
+==4447==    by 0x108D24: main (main.c:18)
+==4447==  Address 0x5271649 is 0 bytes after a block of size 9 alloc'd
+==4447==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4447==    by 0x10A2F5: execute (traverse.c:108)
+==4447==    by 0x109FD8: execute (traverse.c:49)
+==4447==    by 0x109867: parse (parser.c:232)
+==4447==    by 0x108D24: main (main.c:18)
+==4447== 
+--4447-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4447-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4447-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4447-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4447-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4447-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4447-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4447-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+==4447== Syscall param execve(argv) points to uninitialised byte(s)
+==4447==    at 0x4F20E37: execve (syscall-template.S:78)
+==4447==    by 0x4F21732: execvpe (execvpe.c:138)
+==4447==    by 0x10A39C: execute (traverse.c:115)
+==4447==    by 0x109FD8: execute (traverse.c:49)
+==4447==    by 0x109867: parse (parser.c:232)
+==4447==    by 0x108D24: main (main.c:18)
+==4447==  Address 0x1ffeffe098 is on thread 1's stack
+==4447==  in frame #2, created by execute (traverse.c:37)
+==4447==  Uninitialised value was created by a stack allocation
+==4447==    at 0x10A1A8: execute (traverse.c:86)
+==4447== 
+: No such file or directory
+==4448== Invalid read of size 8
+==4448==    at 0x10A233: execute (traverse.c:90)
+==4448==    by 0x109FD8: execute (traverse.c:49)
+==4448==    by 0x109867: parse (parser.c:232)
+==4448==    by 0x108D24: main (main.c:18)
+==4448==  Address 0x5246770 is 0 bytes inside a block of size 8,192 free'd
+==4448==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4448==    by 0x1094F0: parse (parser.c:171)
+==4448==    by 0x108D24: main (main.c:18)
+==4448==  Block was alloc'd at
+==4448==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4448==    by 0x109503: parse (parser.c:172)
+==4448==    by 0x108D24: main (main.c:18)
+==4448== 
+==4448== Invalid write of size 1
+==4448==    at 0x4C32E0D: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4448==    by 0x10A35D: execute (traverse.c:111)
+==4448==    by 0x109FD8: execute (traverse.c:49)
+==4448==    by 0x109867: parse (parser.c:232)
+==4448==    by 0x108D24: main (main.c:18)
+==4448==  Address 0x5272c29 is 0 bytes after a block of size 9 alloc'd
+==4448==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4448==    by 0x10A2F5: execute (traverse.c:108)
+==4448==    by 0x109FD8: execute (traverse.c:49)
+==4448==    by 0x109867: parse (parser.c:232)
+==4448==    by 0x108D24: main (main.c:18)
+==4448== 
+==4448== Invalid write of size 1
+==4448==    at 0x4C32E00: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4448==    by 0x10A35D: execute (traverse.c:111)
+==4448==    by 0x109FD8: execute (traverse.c:49)
+==4448==    by 0x109867: parse (parser.c:232)
+==4448==    by 0x108D24: main (main.c:18)
+==4448==  Address 0x5272cc9 is 0 bytes after a block of size 9 alloc'd
+==4448==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4448==    by 0x10A2F5: execute (traverse.c:108)
+==4448==    by 0x109FD8: execute (traverse.c:49)
+==4448==    by 0x109867: parse (parser.c:232)
+==4448==    by 0x108D24: main (main.c:18)
+==4448== 
+==4448== Syscall param execve(argv[i]) points to unaddressable byte(s)
+==4448==    at 0x4F20E37: execve (syscall-template.S:78)
+==4448==    by 0x4F21732: execvpe (execvpe.c:138)
+==4448==    by 0x10A39C: execute (traverse.c:115)
+==4448==    by 0x109FD8: execute (traverse.c:49)
+==4448==    by 0x109867: parse (parser.c:232)
+==4448==    by 0x108D24: main (main.c:18)
+==4448==  Address 0x5272c29 is 0 bytes after a block of size 9 alloc'd
+==4448==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4448==    by 0x10A2F5: execute (traverse.c:108)
+==4448==    by 0x109FD8: execute (traverse.c:49)
+==4448==    by 0x109867: parse (parser.c:232)
+==4448==    by 0x108D24: main (main.c:18)
+==4448== 
+--4448-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4448-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4448-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4448-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4448-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4448-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4448-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4448-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+==4448== Syscall param execve(argv) points to uninitialised byte(s)
+==4448==    at 0x4F20E37: execve (syscall-template.S:78)
+==4448==    by 0x4F21732: execvpe (execvpe.c:138)
+==4448==    by 0x10A39C: execute (traverse.c:115)
+==4448==    by 0x109FD8: execute (traverse.c:49)
+==4448==    by 0x109867: parse (parser.c:232)
+==4448==    by 0x108D24: main (main.c:18)
+==4448==  Address 0x1ffeffe098 is on thread 1's stack
+==4448==  in frame #2, created by execute (traverse.c:37)
+==4448==  Uninitialised value was created by a stack allocation
+==4448==    at 0x10A1A8: execute (traverse.c:86)
+==4448== 
+: No such file or directoryted.c
+==4449== Invalid read of size 8
+==4449==    at 0x10A233: execute (traverse.c:90)
+==4449==    by 0x109FD8: execute (traverse.c:49)
+==4449==    by 0x109867: parse (parser.c:232)
+==4449==    by 0x108D24: main (main.c:18)
+==4449==  Address 0x524c8c0 is 0 bytes inside a block of size 8,192 free'd
+==4449==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4449==    by 0x1094F0: parse (parser.c:171)
+==4449==    by 0x108D24: main (main.c:18)
+==4449==  Block was alloc'd at
+==4449==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4449==    by 0x109503: parse (parser.c:172)
+==4449==    by 0x108D24: main (main.c:18)
+==4449== 
+==4449== Invalid write of size 1
+==4449==    at 0x4C32E0D: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4449==    by 0x10A35D: execute (traverse.c:111)
+==4449==    by 0x109FD8: execute (traverse.c:49)
+==4449==    by 0x109867: parse (parser.c:232)
+==4449==    by 0x108D24: main (main.c:18)
+==4449==  Address 0x5274209 is 0 bytes after a block of size 9 alloc'd
+==4449==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4449==    by 0x10A2F5: execute (traverse.c:108)
+==4449==    by 0x109FD8: execute (traverse.c:49)
+==4449==    by 0x109867: parse (parser.c:232)
+==4449==    by 0x108D24: main (main.c:18)
+==4449== 
+==4449== Invalid write of size 1
+==4449==    at 0x4C32E00: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4449==    by 0x10A35D: execute (traverse.c:111)
+==4449==    by 0x109FD8: execute (traverse.c:49)
+==4449==    by 0x109867: parse (parser.c:232)
+==4449==    by 0x108D24: main (main.c:18)
+==4449==  Address 0x52742a9 is 0 bytes after a block of size 9 alloc'd
+==4449==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4449==    by 0x10A2F5: execute (traverse.c:108)
+==4449==    by 0x109FD8: execute (traverse.c:49)
+==4449==    by 0x109867: parse (parser.c:232)
+==4449==    by 0x108D24: main (main.c:18)
+==4449== 
+==4449== Syscall param execve(argv[i]) points to unaddressable byte(s)
+==4449==    at 0x4F20E37: execve (syscall-template.S:78)
+==4449==    by 0x4F21732: execvpe (execvpe.c:138)
+==4449==    by 0x10A39C: execute (traverse.c:115)
+==4449==    by 0x109FD8: execute (traverse.c:49)
+==4449==    by 0x109867: parse (parser.c:232)
+==4449==    by 0x108D24: main (main.c:18)
+==4449==  Address 0x5274209 is 0 bytes after a block of size 9 alloc'd
+==4449==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4449==    by 0x10A2F5: execute (traverse.c:108)
+==4449==    by 0x109FD8: execute (traverse.c:49)
+==4449==    by 0x109867: parse (parser.c:232)
+==4449==    by 0x108D24: main (main.c:18)
+==4449== 
+--4449-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4449-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4449-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4449-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4449-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4449-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4449-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4449-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+==4449== Syscall param execve(argv) points to uninitialised byte(s)
+==4449==    at 0x4F20E37: execve (syscall-template.S:78)
+==4449==    by 0x4F21732: execvpe (execvpe.c:138)
+==4449==    by 0x10A39C: execute (traverse.c:115)
+==4449==    by 0x109FD8: execute (traverse.c:49)
+==4449==    by 0x109867: parse (parser.c:232)
+==4449==    by 0x108D24: main (main.c:18)
+==4449==  Address 0x1ffeffe098 is on thread 1's stack
+==4449==  in frame #2, created by execute (traverse.c:37)
+==4449==  Uninitialised value was created by a stack allocation
+==4449==    at 0x10A1A8: execute (traverse.c:86)
+==4449== 
+: No such file or directoryyte.c
+==4450== Invalid read of size 8
+==4450==    at 0x10A233: execute (traverse.c:90)
+==4450==    by 0x109FD8: execute (traverse.c:49)
+==4450==    by 0x109867: parse (parser.c:232)
+==4450==    by 0x108D24: main (main.c:18)
+==4450==  Address 0x5252940 is 0 bytes inside a block of size 8,192 free'd
+==4450==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4450==    by 0x1094F0: parse (parser.c:171)
+==4450==    by 0x108D24: main (main.c:18)
+==4450==  Block was alloc'd at
+==4450==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4450==    by 0x109503: parse (parser.c:172)
+==4450==    by 0x108D24: main (main.c:18)
+==4450== 
+==4450== Invalid write of size 1
+==4450==    at 0x4C32E0D: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4450==    by 0x10A35D: execute (traverse.c:111)
+==4450==    by 0x109FD8: execute (traverse.c:49)
+==4450==    by 0x109867: parse (parser.c:232)
+==4450==    by 0x108D24: main (main.c:18)
+==4450==  Address 0x52757e9 is 0 bytes after a block of size 9 alloc'd
+==4450==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4450==    by 0x10A2F5: execute (traverse.c:108)
+==4450==    by 0x109FD8: execute (traverse.c:49)
+==4450==    by 0x109867: parse (parser.c:232)
+==4450==    by 0x108D24: main (main.c:18)
+==4450== 
+==4450== Invalid write of size 1
+==4450==    at 0x4C32E00: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4450==    by 0x10A35D: execute (traverse.c:111)
+==4450==    by 0x109FD8: execute (traverse.c:49)
+==4450==    by 0x109867: parse (parser.c:232)
+==4450==    by 0x108D24: main (main.c:18)
+==4450==  Address 0x5275889 is 0 bytes after a block of size 9 alloc'd
+==4450==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4450==    by 0x10A2F5: execute (traverse.c:108)
+==4450==    by 0x109FD8: execute (traverse.c:49)
+==4450==    by 0x109867: parse (parser.c:232)
+==4450==    by 0x108D24: main (main.c:18)
+==4450== 
+==4450== Syscall param execve(argv[i]) points to unaddressable byte(s)
+==4450==    at 0x4F20E37: execve (syscall-template.S:78)
+==4450==    by 0x4F21732: execvpe (execvpe.c:138)
+==4450==    by 0x10A39C: execute (traverse.c:115)
+==4450==    by 0x109FD8: execute (traverse.c:49)
+==4450==    by 0x109867: parse (parser.c:232)
+==4450==    by 0x108D24: main (main.c:18)
+==4450==  Address 0x52757e9 is 0 bytes after a block of size 9 alloc'd
+==4450==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4450==    by 0x10A2F5: execute (traverse.c:108)
+==4450==    by 0x109FD8: execute (traverse.c:49)
+==4450==    by 0x109867: parse (parser.c:232)
+==4450==    by 0x108D24: main (main.c:18)
+==4450== 
+--4450-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4450-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4450-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4450-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4450-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4450-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4450-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4450-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+==4450== Syscall param execve(argv) points to uninitialised byte(s)
+==4450==    at 0x4F20E37: execve (syscall-template.S:78)
+==4450==    by 0x4F21732: execvpe (execvpe.c:138)
+==4450==    by 0x10A39C: execute (traverse.c:115)
+==4450==    by 0x109FD8: execute (traverse.c:49)
+==4450==    by 0x109867: parse (parser.c:232)
+==4450==    by 0x108D24: main (main.c:18)
+==4450==  Address 0x1ffeffe098 is on thread 1's stack
+==4450==  in frame #2, created by execute (traverse.c:37)
+==4450==  Uninitialised value was created by a stack allocation
+==4450==    at 0x10A1A8: execute (traverse.c:86)
+==4450== 
+: No such file or directory
+==4451== Invalid read of size 8
+==4451==    at 0x10A233: execute (traverse.c:90)
+==4451==    by 0x109FD8: execute (traverse.c:49)
+==4451==    by 0x109867: parse (parser.c:232)
+==4451==    by 0x108D24: main (main.c:18)
+==4451==  Address 0x5258970 is 0 bytes inside a block of size 8,192 free'd
+==4451==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4451==    by 0x1094F0: parse (parser.c:171)
+==4451==    by 0x108D24: main (main.c:18)
+==4451==  Block was alloc'd at
+==4451==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4451==    by 0x109503: parse (parser.c:172)
+==4451==    by 0x108D24: main (main.c:18)
+==4451== 
+==4451== Invalid write of size 1
+==4451==    at 0x4C32E0D: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4451==    by 0x10A35D: execute (traverse.c:111)
+==4451==    by 0x109FD8: execute (traverse.c:49)
+==4451==    by 0x109867: parse (parser.c:232)
+==4451==    by 0x108D24: main (main.c:18)
+==4451==  Address 0x5276dc9 is 0 bytes after a block of size 9 alloc'd
+==4451==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4451==    by 0x10A2F5: execute (traverse.c:108)
+==4451==    by 0x109FD8: execute (traverse.c:49)
+==4451==    by 0x109867: parse (parser.c:232)
+==4451==    by 0x108D24: main (main.c:18)
+==4451== 
+==4451== Invalid write of size 1
+==4451==    at 0x4C32E00: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4451==    by 0x10A35D: execute (traverse.c:111)
+==4451==    by 0x109FD8: execute (traverse.c:49)
+==4451==    by 0x109867: parse (parser.c:232)
+==4451==    by 0x108D24: main (main.c:18)
+==4451==  Address 0x5276eb9 is 0 bytes after a block of size 9 alloc'd
+==4451==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4451==    by 0x10A2F5: execute (traverse.c:108)
+==4451==    by 0x109FD8: execute (traverse.c:49)
+==4451==    by 0x109867: parse (parser.c:232)
+==4451==    by 0x108D24: main (main.c:18)
+==4451== 
+==4451== Syscall param execve(argv[i]) points to unaddressable byte(s)
+==4451==    at 0x4F20E37: execve (syscall-template.S:78)
+==4451==    by 0x4F21732: execvpe (execvpe.c:138)
+==4451==    by 0x10A39C: execute (traverse.c:115)
+==4451==    by 0x109FD8: execute (traverse.c:49)
+==4451==    by 0x109867: parse (parser.c:232)
+==4451==    by 0x108D24: main (main.c:18)
+==4451==  Address 0x5276dc9 is 0 bytes after a block of size 9 alloc'd
+==4451==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4451==    by 0x10A2F5: execute (traverse.c:108)
+==4451==    by 0x109FD8: execute (traverse.c:49)
+==4451==    by 0x109867: parse (parser.c:232)
+==4451==    by 0x108D24: main (main.c:18)
+==4451== 
+--4451-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4451-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4451-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4451-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4451-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4451-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4451-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4451-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+==4451== Syscall param execve(argv) points to uninitialised byte(s)
+==4451==    at 0x4F20E37: execve (syscall-template.S:78)
+==4451==    by 0x4F21732: execvpe (execvpe.c:138)
+==4451==    by 0x10A39C: execute (traverse.c:115)
+==4451==    by 0x109FD8: execute (traverse.c:49)
+==4451==    by 0x109867: parse (parser.c:232)
+==4451==    by 0x108D24: main (main.c:18)
+==4451==  Address 0x1ffeffe098 is on thread 1's stack
+==4451==  in frame #2, created by execute (traverse.c:37)
+==4451==  Uninitialised value was created by a stack allocation
+==4451==    at 0x10A1A8: execute (traverse.c:86)
+==4451== 
+: No such file or directory
+==4452== Invalid read of size 8
+==4452==    at 0x10A233: execute (traverse.c:90)
+==4452==    by 0x109FD8: execute (traverse.c:49)
+==4452==    by 0x109867: parse (parser.c:232)
+==4452==    by 0x108D24: main (main.c:18)
+==4452==  Address 0x525e9d0 is 0 bytes inside a block of size 8,192 free'd
+==4452==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4452==    by 0x1094F0: parse (parser.c:171)
+==4452==    by 0x108D24: main (main.c:18)
+==4452==  Block was alloc'd at
+==4452==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4452==    by 0x109503: parse (parser.c:172)
+==4452==    by 0x108D24: main (main.c:18)
+==4452== 
+==4452== Invalid write of size 1
+==4452==    at 0x4C32E0D: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4452==    by 0x10A35D: execute (traverse.c:111)
+==4452==    by 0x109FD8: execute (traverse.c:49)
+==4452==    by 0x109867: parse (parser.c:232)
+==4452==    by 0x108D24: main (main.c:18)
+==4452==  Address 0x52783a9 is 0 bytes after a block of size 9 alloc'd
+==4452==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4452==    by 0x10A2F5: execute (traverse.c:108)
+==4452==    by 0x109FD8: execute (traverse.c:49)
+==4452==    by 0x109867: parse (parser.c:232)
+==4452==    by 0x108D24: main (main.c:18)
+==4452== 
+==4452== Invalid write of size 1
+==4452==    at 0x4C32E00: strcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4452==    by 0x10A35D: execute (traverse.c:111)
+==4452==    by 0x109FD8: execute (traverse.c:49)
+==4452==    by 0x109867: parse (parser.c:232)
+==4452==    by 0x108D24: main (main.c:18)
+==4452==  Address 0x5278499 is 0 bytes after a block of size 9 alloc'd
+==4452==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4452==    by 0x10A2F5: execute (traverse.c:108)
+==4452==    by 0x109FD8: execute (traverse.c:49)
+==4452==    by 0x109867: parse (parser.c:232)
+==4452==    by 0x108D24: main (main.c:18)
+==4452== 
+==4452== Syscall param execve(argv[i]) points to unaddressable byte(s)
+==4452==    at 0x4F20E37: execve (syscall-template.S:78)
+==4452==    by 0x4F21732: execvpe (execvpe.c:138)
+==4452==    by 0x10A39C: execute (traverse.c:115)
+==4452==    by 0x109FD8: execute (traverse.c:49)
+==4452==    by 0x109867: parse (parser.c:232)
+==4452==    by 0x108D24: main (main.c:18)
+==4452==  Address 0x52783a9 is 0 bytes after a block of size 9 alloc'd
+==4452==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4452==    by 0x10A2F5: execute (traverse.c:108)
+==4452==    by 0x109FD8: execute (traverse.c:49)
+==4452==    by 0x109867: parse (parser.c:232)
+==4452==    by 0x108D24: main (main.c:18)
+==4452== 
+--4452-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4452-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4452-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4452-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4452-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4452-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4452-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+--4452-- warning: evaluate_Dwarf3_Expr: unhandled DW_OP_ 0xf3
+==4452== Syscall param execve(argv) points to uninitialised byte(s)
+==4452==    at 0x4F20E37: execve (syscall-template.S:78)
+==4452==    by 0x4F21732: execvpe (execvpe.c:138)
+==4452==    by 0x10A39C: execute (traverse.c:115)
+==4452==    by 0x109FD8: execute (traverse.c:49)
+==4452==    by 0x109867: parse (parser.c:232)
+==4452==    by 0x108D24: main (main.c:18)
+==4452==  Address 0x1ffeffe098 is on thread 1's stack
+==4452==  in frame #2, created by execute (traverse.c:37)
+==4452==  Uninitialised value was created by a stack allocation
+==4452==    at 0x10A1A8: execute (traverse.c:86)
+==4452== 
+: No such file or directory
+==4445== 
+==1520== HEAP SUMMARY:
+==1520==     in use at exit: 108,656 bytes in 104 blocks
+==1520==   total heap usage: 366 allocs, 262 frees, 244,358 bytes allocated
+==1520== 
+==1520== 136 bytes in 3 blocks are definitely lost in loss record 3 of 11
+==1520==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1520==    by 0x1090CE: parse (parser.c:97)
+==1520==    by 0x108DB4: main (main.c:18)
+==1520== 
+==1520== 489 bytes in 10 blocks are definitely lost in loss record 5 of 11
+==1520==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1520==    by 0x10A018: createCopy (parser.c:432)
+==1520==    by 0x109CC4: replaceFlags (parser.c:355)
+==1520==    by 0x1091AE: parse (parser.c:112)
+==1520==    by 0x108DB4: main (main.c:18)
+==1520== 
+==1520== 615 bytes in 10 blocks are definitely lost in loss record 6 of 11
+==1520==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1520==    by 0x109646: parse (parser.c:178)
+==1520==    by 0x108DB4: main (main.c:18)
+==1520== 
+==1520== 8,192 bytes in 8 blocks are definitely lost in loss record 9 of 11
+==1520==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1520==    by 0x109F25: substitute (parser.c:403)
+==1520==    by 0x109E93: replaceFlags (parser.c:389)
+==1520==    by 0x1091AE: parse (parser.c:112)
+==1520==    by 0x108DB4: main (main.c:18)
+==1520== 
+==1520== LEAK SUMMARY:
+==1520==    definitely lost: 9,432 bytes in 31 blocks
+==1520==    indirectly lost: 0 bytes in 0 blocks
+==1520==      possibly lost: 0 bytes in 0 blocks
+==1520==    still reachable: 99,224 bytes in 73 blocks
+==1520==         suppressed: 0 bytes in 0 blocks
+==1520== Reachable blocks (those to which a pointer was found) are not shown.
+==1520== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==4445== 
+==4445== For counts of detected and suppressed errors, rerun with: -v
+==4445== ERROR SUMMARY: 265 errors from 21 contexts (suppressed: 0 from 0)
